@@ -1,8 +1,15 @@
 # Log Analysis Tool
-Runs a set of 3 pre-set reports from the database.
+Runs three preset reports from the database.
 
 ## Before Running
+First, clone the Repo and change to the new directory.
 ```
+git clone https://github.com/dannytpeck/logs-analysis.git
+cd logs-analysis
+```
+Next, download [this file](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) and unzip to the same directory the repo's in, then set up the DB and create the required Views.
+```
+psql -d news -f newsdata.sql
 psql news
 create view article_views as
   select title, author, log.time from articles, log
@@ -18,9 +25,7 @@ create view error_rate as
 ```
 
 ## Running the App
-Clone the github repository and run using Python 2.7
+Finally, run the app (Python 2.7 required)
 ```
-git clone https://github.com/dannytpeck/logs-analysis.git
-cd logs-analysis
 python analyze.py
 ```
