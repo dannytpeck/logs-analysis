@@ -1,5 +1,5 @@
 # Log Analysis Tool
-Runs three preset reports from the database.
+Runs three preset reports from a database of news articles.
 
 ## Before Running
 First, clone the Repo and change to the new directory.
