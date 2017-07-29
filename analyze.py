@@ -2,6 +2,7 @@
 
 import psycopg2
 
+# Connect to news db and start cursor
 db = psycopg2.connect("dbname=news")
 c = db.cursor()
 
@@ -32,6 +33,7 @@ def most_daily_errors():
     return c.fetchall()
 
 
+# Print the three queries, nicely formatted
 print
 for row in three_most_popular_articles():
     print "\"{}\" - {} views".format(row[0], row[1])
@@ -43,4 +45,6 @@ for row in most_daily_errors():
     print "{:%B %d, %Y} - {}% errors".format(row[0], row[1])
 print
 
+
+# Close db now that we're done with it
 db.close()
